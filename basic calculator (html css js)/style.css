@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 111, 0);
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+button {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  background-color: rgb(255, 111, 0);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+.rst {
+  font-size: 18px;
+  width: 70px;
+  padding: 20px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inpt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+}
+input {
+  margin: 10px;
+  padding: 10px;
+  width: 80%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  border: 2px solid rgb(255, 111, 0);
+}
+
+.result {
+  margin-left: 60px;
+  margin-top: 10px;
+  padding: 10px;
+  width: 68%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background-color: white;
+  border: 2px solid rgb(255, 111, 0);
+}
+.wrapper {
+  width: 400px;
+  height: 550px;
+  background-color: wheat;
+  border-radius: 20px;
+  box-shadow: 10px 10px 15px -2px orangered, -10px -10px 15px -2px orangered;
+}

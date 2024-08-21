@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator-SV</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Calculator</h1>
+      <div class="inpt">
+        <input
+          required
+          type="number"
+          placeholder="Input number"
+          class="inpt1"
+        />
+        <div class="btn">
+          <button type="submit" class="a">+</button>
+          <button type="submit" class="s">-</button>
+          <button type="submit" class="d">/</button>
+          <button type="submit" class="m">*</button>
+        </div>
+        <input
+          required
+          type="number"
+          placeholder="Input number"
+          class="inpt2"
+        />
+      </div>
+      <div class="btn">
+        <button type="submit" onclick="calculate();">=</button>
+      </div>
+      <div class="result"></div>
+      <button type="submit" onclick="resetCalculator();" class="rst">
+        Reset
+      </button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const input1 = document.querySelector(".inpt1");
+        const input2 = document.querySelector(".inpt2");
+        const resultDiv = document.querySelector(".result");
+        let operator = "";
+
+        let previousButton = null; // Track the previously clicked button
+
+        // Function to handle button click and change background color
+        function handleButtonClick(button, op) {
+          operator = op;
+
+          // Reset the background color of the previously clicked button
+          if (previousButton) {
+            previousButton.style.backgroundColor = "rgb(255, 111, 0)";
+          }
+
+          // Change the background color of the clicked button
+          button.style.backgroundColor = "black";
+          previousButton = button; // Update the previous button to the current one
+        }
+
+        // Event listeners for the operator buttons
+        document.querySelector(".a").addEventListener("click", function () {
+          handleButtonClick(this, "+");
+        });
+        document.querySelector(".s").addEventListener("click", function () {
+          handleButtonClick(this, "-");
+        });
+        document.querySelector(".d").addEventListener("click", function () {
+          handleButtonClick(this, "/");
+        });
+        document.querySelector(".m").addEventListener("click", function () {
+          handleButtonClick(this, "*");
+        });
+
+        // Calculate
+        window.calculate = function () {
+          const num1 = parseFloat(input1.value);
+          const num2 = parseFloat(input2.value);
+          let result;
+
+          if (isNaN(num1) || isNaN(num2)) {
+            resultDiv.textContent = "Please enter valid numbers!";
+            return;
+          }
+
+          switch (operator) {
+            case "+":
+              result = num1 + num2;
+              break;
+            case "-":
+              result = num1 - num2;
+              break;
+            case "*":
+              result = num1 * num2;
+              break;
+            case "/":
+              if (num2 === 0) {
+                resultDiv.textContent = "Cannot divide by 0";
+                return;
+              }
+              result = num1 / num2;
+              break;
+            default:
+              resultDiv.textContent = "Please select an operator";
+              return;
+          }
+
+          resultDiv.textContent = `Result: ${result}`;
+        };
+        // Function to reset the calculator
+        window.resetCalculator = function () {
+          input1.value = "";
+          input2.value = "";
+          resultDiv.textContent = "";
+          operator = "";
+
+          // Reset the background color of the previously clicked button
+          if (previousButton) {
+            previousButton.style.backgroundColor = "rgb(255, 111, 0)";
+            previousButton = null;
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
